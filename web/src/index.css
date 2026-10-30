@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-[#02050e] text-zinc-200 font-sans antialiased text-[13px];
+  background-image: 
+    radial-gradient(circle at 50% 20%, rgba(0, 242, 254, 0.05) 0%, transparent 60%),
+    linear-gradient(to bottom, #02040a 0%, #040816 100%);
+  overflow-x: hidden;
+}
+
+/* Custom Cyberpunk / JARVIS Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 242, 254, 0.3) transparent;
+}
+*::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(0, 242, 254, 0.25);
+  border-radius: 4px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 0 8px #00f2fe;
+}
+
+:focus-visible {
+  outline: 2px solid #00f2fe;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* React Flow Sci-Fi Canvas Customization */
+.react-flow {
+  --xy-background-color: transparent;
+  --xy-node-border-radius: 8px;
+}
+.react-flow__attribution {
+  display: none;
+}
+.react-flow__controls-button {
+  background: #040a1c !important;
+  border-color: #0ea5e944 !important;
+  fill: #38bdf8 !important;
+}
+.react-flow__minimap {
+  background: #02050f !important;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+}
+
+/* Keyframes for Rotating Rings & Energy Waves */
+@keyframes spin-cw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spin-ccw {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes pulse-glow {
+  0% {
+    transform: scale(0.97);
+    filter: drop-shadow(0 0 15px rgba(0, 242, 254, 0.5));
+  }
+  100% {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 35px rgba(0, 242, 254, 0.9));
+  }
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.edge-live {
+  stroke: #00f2fe !important;
+  stroke-dasharray: 6 4;
+  animation: dash 0.7s linear infinite;
+  filter: drop-shadow(0 0 4px #00f2fe);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .edge-live {
+    animation: none;
+  }
+  * {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+  }
+}
